@@ -1,0 +1,45 @@
+<% include ../includes/head %>
+<% include navHead %>
+
+<div class="container">
+    <div class="row-fluid">
+        <div class="span2">
+            <% include navBar %>
+        </div>
+        <div class="span10">
+            <form action="/admin/course/add" method="post" class="form-horizontal well">
+                <div class="control-group">
+                    <label class="control-label">Course ID</label>
+
+                    <div class="controls">
+                        <input type="text" name="courseid" placeholder="Course ID" required>
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label class="control-label">Course Name</label>
+
+                    <div class="controls">
+                        <input type="text" name="coursename" placeholder="Course Name" required>
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label class="control-label">Course Credit</label>
+
+                    <div class="controls">
+                        <input type="number" name="coursecredit" placeholder="Course Credit" required>
+                    </div>
+                </div>
+                <div class="controls alert-error">
+                    <% if (message) { %>
+                    <p><%= message %></p>
+                    <% } %>
+                </div>
+                <div class="form-actions">
+                    <button type="submit" class="btn btn-success">Add</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<% include ../includes/foot %>

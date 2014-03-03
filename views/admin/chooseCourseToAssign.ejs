@@ -1,0 +1,26 @@
+<% include ../includes/head %>
+<% include navHead %>
+
+<div class="container">
+    <div class="row-fluid">
+        <div class="span2">
+            <% include navBar %>
+        </div>
+        <div class="span4">
+            <table class="table table-hover">
+                <tr>
+                    <th>Please Choose a Course:</th>
+                </tr>
+                <% courses.forEach(function(course){ %>
+                <tr>
+                    <td><i class="icon-book"></i>&nbsp&nbsp&nbsp<a
+                                href="/admin/assign/teacher/<%= course._id %>"><%= course.courseId %>
+                            &nbsp<%= course.courseName %></a></td>
+                </tr>
+                <% }) %>
+            </table>
+        </div>
+    </div>
+</div>
+
+<% include ../includes/foot %>

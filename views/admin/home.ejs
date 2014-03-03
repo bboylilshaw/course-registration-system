@@ -1,0 +1,46 @@
+<% include ../includes/head %>
+<% include navHead %>
+
+
+<div class="container">
+    <div class="row-fluid">
+        <div class="span2">
+            <% include navBar %>
+        </div>
+
+        <form class="form-search pull-right" action="/admin/course/find" method="post">
+            <div class="input-append">
+                <input type="text" name="searchcourse" class="span8 search-query" placeholder="Search course">
+                <button type="submit" class="btn">Search</button>
+            </div>
+        </form>
+
+        <div class="span10">
+            <table class="table table-hover">
+                <tr>
+                    <th>Course ID</th>
+                    <th>Course Name</th>
+                    <th>Course Credit</th>
+                </tr>
+                <% courses.forEach(function(course){ %>
+                <tr>
+                    <td><a href="/admin/course/detail/<%= course._id %>"><%= course.courseId %></a></td>
+                    <td><a href="/admin/course/detail/<%= course._id %>"><%= course.courseName %></a></td>
+                    <td><%= course.courseCredit %></td>
+                </tr>
+                <% }) %>
+            </table>
+            <div class="pagination pagination-centered">
+                <ul>
+                    <li class="disabled"><a href="#">&laquo;</a></li>
+                    <li class="disabled"><a href="#">&lsaquo;</a></li>
+                    <li class="active"><a href="#">1</a></li>
+                    <li class="active"><a href="#">&rsaquo;</a></li>
+                    <li class="active"><a href="#">&raquo;</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<% include ../includes/foot %>

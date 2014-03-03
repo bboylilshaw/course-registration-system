@@ -1,0 +1,31 @@
+<% include ../includes/head %>
+<% include navHead %>
+
+<div class="container">
+    <div class="row-fluid">
+        <div class="span2">
+            <% include navBar %>
+        </div>
+        <div class="span10">
+            <table class="table table-hover">
+                <tr>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Username</th>
+                    <th>Position</th>
+                </tr>
+                <% teachers.forEach(function(teacher){ %>
+                <tr>
+                    <td><a href="/admin/teacher/detail/<%= teacher._id %>"><%= teacher.name.first %></a></td>
+                    <td><a href="/admin/teacher/detail/<%= teacher._id %>"><%= teacher.name.last %></a></td>
+                    <td><%= teacher.username %></td>
+                    <td><%= teacher.position %></td>
+                </tr>
+                <% }) %>
+            </table>
+            <!--pagination placeholder-->
+        </div>
+    </div>
+</div>
+
+<% include ../includes/foot %>

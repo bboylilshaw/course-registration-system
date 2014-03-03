@@ -1,0 +1,40 @@
+<% include ../includes/head %>
+<% include navHead %>
+
+<div class="container">
+    <div class="row-fluid">
+        <div class="span2">
+            <% include navBar %>
+        </div>
+
+        <div class="span6">
+            <form action="/admin/assign/teacher/<%= course_id %>" method="post" class="form-horizontal well">
+                <div class="control-group">
+                    <% teachers.forEach(function(teacher){ %>
+                    <label class="checkbox">
+                        <input type="checkbox" name="teachers" value="<%= teacher._id %>"/><%= teacher.name.first %>
+                        &nbsp<%= teacher.name.last %>
+                    </label>
+                    <% }) %>
+                </div>
+                <div class="form-actions">
+                    <button type="submit" class="btn btn-success">Assign</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function () {
+        var alreadyAssigned = "<%=alreadyAssigned%>";
+        var alreadyAssignedArray = alreadyAssigned.split(",");
+        $.each($(":checkbox"), function (index, object) {
+            if ($.inArray(object.value, alreadyAssignedArray) !== -1) {
+                $(":checkbox")[index].checked = "true";
+            }
+        });
+    });
+</script>
+
+<% include ../includes/foot %>

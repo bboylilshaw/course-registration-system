@@ -1,0 +1,63 @@
+<% include ../includes/head %>
+<% include navHead %>
+
+<div class="container">
+    <div class="row-fluid">
+        <div class="span2">
+            <% include navBar %>
+        </div>
+        <div class="span10">
+            <form id="teacherForm" action="/admin/teacher/<%= teacher._id %>" method="post">
+                <div>
+                    <div>
+                        <label>First Name: </label>
+                        <input type="text" name="first" value="<%= teacher.name.first %>" required="true"/>
+                    </div>
+                    <div>
+                        <label>Last Name: </label>
+                        <input type="text" name="last" value="<%= teacher.name.last %>" required="true"/>
+                    </div>
+                    <div>
+                        <label>Username: </label>
+                        <input type="text" name="username" value="<%= teacher.username %>" required="true"/>
+                    </div>
+                    <div>
+                        <label>Position: </label>
+                        <select id="position" name="position" class="form-control">
+                            <option value="Professor">Professor</option>
+                            <option value="Associate Professor">Associate Professor</option>
+                            <option value="Assistant Professor">Assistant Professor</option>
+                            <option value="Lecturer">Lecturer</option>
+                        </select>
+                    </div>
+                    <!--Error Message Placeholder-->
+                    <input id="hiddenMethod" type="hidden" name="_method" value="put"/>
+                    <button type="submit" class="btn btn-primary">Update</button>
+                    <button type="button" id="deleteTeacher" class="btn btn-danger">Delete</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function () {
+        var positionField = $("#position");
+        for (var i = 0; i < positionField.children().length; i++) {
+            if (positionField.children()[i].value === "<%= teacher.position %>") {
+                positionField.children()[i].selected = true;
+            }
+        }
+
+        $("#deleteTeacher").on("click", function () {
+            bootbox.confirm("Are you sure you want to delete it?", function (result) {
+                if (result) {
+                    $("#hiddenMethod").val("delete");
+                    $("#teacherForm").submit();
+                }
+            });
+        });
+    });
+</script>
+
+<% include ../includes/foot %>

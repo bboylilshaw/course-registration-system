@@ -1,0 +1,52 @@
+<% include ../includes/head %>
+<% include navHead %>
+
+<div class="container">
+    <div class="row-fluid">
+        <div class="span2">
+            <% include navBar %>
+        </div>
+        <div class="span10">
+            <form action="/admin/teacher/add" method="post" class="form-horizontal well">
+                <div class="control-group">
+                    <label class="control-label">First Name</label>
+
+                    <div class="controls">
+                        <input type="text" name="first" placeholder="First Name" required>
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label class="control-label">Last Name</label>
+
+                    <div class="controls">
+                        <input type="text" name="last" placeholder="Last Name" required>
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label class="control-label">Username</label>
+
+                    <div class="controls">
+                        <input type="text" name="username" placeholder="Username" required>
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label class="control-label">Position</label>
+
+                    <div class="controls">
+                        <select name="position" class="form-control">
+                            <option value="Professor">Professor</option>
+                            <option value="Associate Professor">Associate Professor</option>
+                            <option value="Assistant Professor">Assistant Professor</option>
+                            <option value="Lecturer">Lecturer</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-actions">
+                    <button type="submit" class="btn btn-success">Add</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<% include ../includes/foot %>

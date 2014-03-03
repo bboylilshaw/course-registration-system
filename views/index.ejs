@@ -1,0 +1,58 @@
+<% include includes/head %>
+
+<div class="container">
+    <div class="well">
+        <h1><%= title %></h1>
+
+        <p class="lead">Welcome to <%= title %></p>
+    </div>
+
+    <form action="/signin" method="post" class="form-horizontal">
+        <div class="control-group">
+            <label class="control-label" for="username">Username</label>
+
+            <div class="controls">
+                <input type="text" name="username" placeholder="Username" required>
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label" for="password">Password</label>
+
+            <div class="controls">
+                <input type="password" name="password" placeholder="Password" required>
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label" for="userrole">Role</label>
+
+            <div class="controls">
+                <select name="userrole" class="form-control">
+                    <option value="admin">Admin</option>
+                    <option value="student">Student</option>
+                    <option value="teacher">Teacher</option>
+                </select>
+            </div>
+        </div>
+        <div class="control-group">
+            <div class="controls">
+                <button type="submit" class="btn btn-primary">Sign in</button>
+            </div>
+        </div>
+    </form>
+
+    <!-- Carousel ================================================== -->
+    <div id="myCarousel" class="carousel slide">
+        <!-- Carousel items -->
+        <div class="carousel-inner">
+            <div class="active item"><img src="http://getbootstrap.com/2.3.2/assets/img/examples/slide-01.jpg" alt="">
+            </div>
+            <div class="item"><img src="http://getbootstrap.com/2.3.2/assets/img/examples/slide-02.jpg" alt=""></div>
+            <div class="item"><img src="http://getbootstrap.com/2.3.2/assets/img/examples/slide-03.jpg" alt=""></div>
+        </div>
+        <!-- Carousel nav -->
+        <a class="carousel-control left" href="#myCarousel" data-slide="prev">&lsaquo;</a>
+        <a class="carousel-control right" href="#myCarousel" data-slide="next">&rsaquo;</a>
+    </div>
+</div>
+
+<% include includes/foot %>
