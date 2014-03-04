@@ -6,11 +6,11 @@
         "start": "node app.js"
     },
     "dependencies": {
-        "express": "~3.3.x",
-        "mongoose": "~3.6.x",
-        "mongoose-unique-validator": "~0.2.0",
-        "connect-flash": "~0.1.1",
-        "log": "~1.4.0",
+        "express": "3.3.x",
+        "mongoose": "3.6.x",
+        "mongoose-unique-validator": "0.2.0",
+        "connect-flash": "0.1.1",
+        "log": "1.4.0",
         "ejs": "*"
     }
 }
